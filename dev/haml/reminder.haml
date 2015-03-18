@@ -6,27 +6,52 @@
 
 	= Haml::Engine.new(File.read("dev/haml/partials/_doc_head.haml")).render
 
-	%body#page_error.page_error
+	%body#page_reminder.page_reminder
 
 		= Haml::Engine.new(File.read("dev/haml/partials/_html_header.haml")).render
 
 		%main{:role => "main"}
 
-			%div{"data-container" => "full"}
+			%section{"data-container" => "full"}
 
-				.badge.badge_alert.wrap_svg
-					%svg.ui_exclaim{:viewBox => "0 0 64 64"}
-						%use{"xlink:href" => "#ui_exclaim"}
+				%article.banner.pinned.clearfix
 
-				.headlines
-					%h1 Error 429
-					%p.error_reason Too Many Requests
+					.badge.icon_lead.wrap_svg
+						%svg.ui_lead{:viewBox => "0 0 64 64"}
+							%use{"xlink:href" => "#ui_lead"}
 
-			%div{"data-container" => "padding"}
+					.headlines
+						%h1.name.truncate Jimmy McNulty
+						%h4.truncate Northern Army Bros.
 
-				.content
-					%h3 Woah there, Partner.
-					%p You’ve exceeded 15 requests per minute, which is actually pretty impressive.
-					%a.button.blue{:href => "#", :title => "Okay"} Okay
+					.icon_pin.wrap_svg
+						%svg.ui_pin{:viewBox => "0 0 64 64"}
+							%use{"xlink:href" => "#ui_pin"}
+
+			%section{"data-container" => "padding"}
+
+				%article.cases
+
+					.cases_header
+
+						%h4 3 Open Cases
+
+						%a.icon_calendar.wrap_svg{:href => "#", :title => "Calendar"}
+							%svg.ui_calendar{:viewBox => "0 0 64 64"}
+								%use{"xlink:href" => "#ui_calendar"}
+
+						%a.icon_reminder.wrap_svg{:href => "#", :title => "Reminder"}
+							%svg.ui_reminder{:viewBox => "0 0 64 64"}
+								%use{"xlink:href" => "#ui_reminder"}
+
+					.cases_calendar
+
+
+					.cases_reminder
+
+
+					.actions.columns
+						%a.button.pink{:href => "#", :title => "Cancel"} Cancel
+						%a.button.blue{:href => "#", :title => "Save"} Save
 
 		= Haml::Engine.new(File.read("dev/haml/partials/_doc_scripts.haml")).render

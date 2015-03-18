@@ -12,21 +12,27 @@
 
 		%main{:role => "main"}
 
-			%div{"data-container" => "full"}
+			%section{"data-container" => "full"}
 
-				.badge.badge_alert.wrap_svg
-					%svg.ui_exclaim{:viewBox => "0 0 64 64"}
-						%use{"xlink:href" => "#ui_exclaim"}
+				%article.banner.clearfix
 
-				.headlines
-					%h1 Error 429
-					%p.error_reason Too Many Requests
+					.badge.icon_alert.wrap_svg
+						%svg.ui_exclaim{:viewBox => "0 0 64 64"}
+							%use{"xlink:href" => "#ui_exclaim"}
 
-			%div{"data-container" => "padding"}
+					.headlines
+						%h1.truncate Error 429
+						%p.error_reason.truncate Too Many Requests / Time Out
 
-				.content
-					%h3 Woah there, Partner.
-					%p You’ve exceeded 15 requests per minute, which is actually pretty impressive.
-					%a.button.blue{:href => "#", :title => "Okay"} Okay
+			%section{"data-container" => "padding"}
+
+				%article.body
+
+					.content
+						%h3 Woah there, Partner.
+						%p You’ve exceeded 15 requests per minute, which is actually pretty impressive.
+
+					.actions
+						%a.button.blue{:href => "#", :title => "Okay"} Okay
 
 		= Haml::Engine.new(File.read("dev/haml/partials/_doc_scripts.haml")).render

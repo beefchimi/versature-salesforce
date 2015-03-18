@@ -221,11 +221,6 @@ div.wrap_select.toggle_show div.dropdown_toggle {
 
 // Containers
 // ----------------------------------------------------------------------------
-[data-container="full"] {
-	padding-top: 2rem;
-	padding-bottom: 2rem;
-	background-color: $hsla_L92;
-}
 [data-container="padding"] {
 	padding-left: 1rem;
 	padding-right: 1rem;
@@ -267,7 +262,8 @@ a:active {
 // --- Buttons --- \\
 .button {
 	display: block;
-	margin: 0 auto;
+	margin-left: auto;
+	margin-right: auto;
 	width: 16rem;
 	height: 3.6rem;
 	font-family: "futura-pt", Futura, "Trebuchet MS", Arial, sans-serif;
@@ -280,20 +276,25 @@ a:active {
 	color: $hsla_L100;
 	border-radius: 0.4rem;
 }
-// + individual buttons + \\
 .button.blue {
 	background-color: $hsla_blue;
 }
 .button.pink {
 	background-color: $hsla_pink;
 }
-
 // + interaction + \\
 .button:hover {
 	background-color: $hsla_L28;
 }
 .button:active {
 	background-color: $hsla_L38;
+}
+// + actions + \\
+div.actions {
+	margin-top: 2rem;
+}
+div.actions .button {
+	margin-top: 1rem;
 }
 
 // --- Badges --- \\
@@ -306,10 +307,55 @@ a:active {
 .badge svg {
 	fill: $hsla_L100;
 }
-
 // + individual badges + \\
-.badge_alert {
+.badge.icon_alert {
 	background-color: $hsla_pink;
+}
+.badge.icon_lead {
+	background-color: $hsla_orange;
+}
+
+// Banner
+// ----------------------------------------------------------------------------
+article.banner {
+	margin-bottom: 2rem;
+	padding: 2rem 1rem;
+	background-color: $hsla_L92;
+}
+article.banner div.badge,
+article.banner div.headlines {
+	float: left;
+}
+article.banner div.badge {
+	margin-right: 1rem;
+}
+article.banner div.headlines {
+	padding-top: 0.3rem;
+	width: calc(100% - 4.2rem); // 3.2rem + 1rem
+}
+article.banner div.headlines h1 {
+	margin-bottom: 0.2rem;
+}
+article.banner div.headlines p {
+	font-size: 1.1rem;
+	color: $hsla_L54;
+}
+// + pinned banner + \\
+article.banner.pinned {
+	position: relative;
+}
+article.banner.pinned div.headlines {
+	width: calc(100% - 7.2rem); // 3.2rem + 1rem + 2rem + 1rem
+}
+article.banner.pinned div.icon_pin {
+	position: absolute;
+	top: 50%;
+	right: 1rem;
+	width: 2rem;
+	transform: translateY(-50%);
+}
+article.banner.pinned div.icon_pin svg {
+	fill: $hsla_L72;
 }
 
 // Overlay & Modal
@@ -362,18 +408,26 @@ h1 {
 	text-transform: uppercase;
 	color: $hsla_L28;
 }
+h1.name {
+	text-transform: none;
+}
 
 h3 {
 	font-size: 1.4rem;
 	font-weight: 700;
-
 }
+h4 {
+	font-family: "futura-pt", Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 1rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: $hsla_L54;
+}
+
 
 // Content
 // ----------------------------------------------------------------------------
 div.content {
-	padding-top: 2rem;
-	padding-bottom: 2rem;
 	text-align: center;
 	color: $hsla_L18;
 }
@@ -429,9 +483,14 @@ header a.link_settings {
 }
 
 
-// Something
+// Cases
 // ----------------------------------------------------------------------------
+artice.cases {
+}
 
+div.cases_header {
+	position: relative;
+}
 
 
 
@@ -442,32 +501,6 @@ header a.link_settings {
 
 // Error
 // ----------------------------------------------------------------------------
-body.page_error [data-container="full"] {
-	text-align: center;
-}
-// + banner + \\
-body.page_error div.badge_alert,
-body.page_error div.headlines {
-	display: inline-block;
-}
-body.page_error div.badge_alert {
-	transform: translateY(0.3rem);
-}
-body.page_error div.headlines {
-	padding-left: 0.6rem;
-	text-align: left;
-}
-body.page_error div.headlines h1 {
-	margin-bottom: 0.4rem;
-}
-body.page_error div.headlines p {
-	font-size: 1rem;
-	color: $hsla_L54;
-}
-// + content + \\
-body.page_error div.content a.button {
-	margin-top: 2rem;
-}
 
-
-
+// Reminder
+// ----------------------------------------------------------------------------
