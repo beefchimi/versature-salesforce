@@ -266,13 +266,15 @@ a:active {
 */
 // --- Buttons --- \\
 .button {
-	display: inline-block;
+	display: block;
 	margin: 0 auto;
-	padding: 1.2rem 2rem; // computed height is 65px
+	width: 16rem;
+	height: 3.6rem;
 	font-family: "futura-pt", Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 1.4rem;
 	font-weight: 700;
 	letter-spacing: 0.1rem;
+	line-height: 3.6rem;
 	text-align: center;
 	text-transform: uppercase;
 	color: $hsla_L100;
@@ -465,7 +467,6 @@ body.page_error div.headlines p {
 // + content + \\
 body.page_error div.content a.button {
 	margin-top: 2rem;
-	min-width: 80%;
 }
 
 
