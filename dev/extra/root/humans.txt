@@ -1,0 +1,9 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+/* TEAM */
+
+	Northern Army: Ryan Anderson, Rene Antunes, Sian Jones, Curtis Dulmage
+	Site: http://versature.com/
+	Location: Ottawa, Ontario, Canada

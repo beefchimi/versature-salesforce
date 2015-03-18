@@ -1,0 +1,15 @@
+%header
+
+	.wrap_svg
+		%svg.v_logo{:viewBox => "0 0 64 30"}
+			%use{"xlink:href" => "#v_logo"}
+
+	-# only visible on: User Settings, Global Settings
+	%a.link_back.wrap_svg{:href => "#", :title => "Go Back"}
+		%svg.ui_arrow-thin{:viewBox => "0 0 64 64"}
+			%use{"xlink:href" => "#ui_arrow-thin"}
+
+	-# only visible on: Outbound Phone Number, Outbound Default
+	%a.link_settings.wrap_svg{:href => "#", :title => "Settings"}
+		%svg.ui_cog{:viewBox => "0 0 64 64"}
+			%use{"xlink:href" => "#ui_cog"}

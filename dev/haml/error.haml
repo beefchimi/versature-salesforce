@@ -1,0 +1,32 @@
+!!!
+/[if IE 9] <html class="ie9" lang="en">
+<!--[if gt IE 9]><!-->
+%html{:lang => "en"}<>
+	<!--<![endif]-->
+
+	= Haml::Engine.new(File.read("dev/haml/partials/_doc_head.haml")).render
+
+	%body#page_error.page_error
+
+		= Haml::Engine.new(File.read("dev/haml/partials/_html_header.haml")).render
+
+		%main{:role => "main"}
+
+			%div{"data-container" => "full"}
+
+				.badge.badge_alert.wrap_svg
+					%svg.ui_exclaim{:viewBox => "0 0 64 64"}
+						%use{"xlink:href" => "#ui_exclaim"}
+
+				.headlines
+					%h1 Error 429
+					%p.error_reason Too Many Requests
+
+			%div{"data-container" => "padding"}
+
+				.content
+					%h3 Woah there, Partner.
+					%p You’ve exceeded 15 requests per minute, which is actually pretty impressive.
+					%a.button.blue{:href => "#", :title => "Okay"} Okay
+
+		= Haml::Engine.new(File.read("dev/haml/partials/_doc_scripts.haml")).render

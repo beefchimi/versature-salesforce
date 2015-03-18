@@ -1,0 +1,472 @@
+// ==|== primary styles =======================================================
+// ============================================================================
+
+// Foundation
+// ----------------------------------------------------------------------------
+html,
+button,
+input,
+optgroup,
+select,
+textarea {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: $hsla_L0;
+}
+body {
+	position: relative;
+	width: 20rem;
+	background: $hsla_L96;
+}
+::selection {
+	color: $hsla_L100;
+	background-color: $hsla_blue;
+}
+/*
+::-webkit-input-placeholder {
+	color: $hsla_blue;
+}
+::-moz-placeholder {
+	color: $hsla_blue;
+	opacity: 1;
+}
+:-ms-input-placeholder {
+	color: $hsla_blue;
+}
+*/
+
+// Transitions
+// ----------------------------------------------------------------------------
+a,
+input,
+button {
+	transition: all 0.3s ease-in-out;
+}
+svg {
+	transition: fill 0.3s ease-in-out;
+}
+[data-overlay] {
+	transition: opacity 0.6s ease-in-out;
+}
+// --- Animations --- \\
+@keyframes animShow {
+	0%   { opacity: 0; }
+	100% { opacity: 1; }
+}
+@keyframes animHide {
+	0%   { opacity: 1; left: 0; }
+	99%  { opacity: 0; left: 0; }
+	100% { opacity: 0; left: -200%; }
+}
+/*
+// --- FOUT --- \\
+html:not(.ie9) header {
+	opacity: 0; // begin by setting opacity to 0
+	animation: animShow 0.6s ease-in-out 0.2s forwards;
+}
+*/
+
+// ==|== components ===========================================================
+// ============================================================================
+
+// Forms
+// ----------------------------------------------------------------------------
+input[type="text"] {
+	cursor: pointer;
+	padding: 0 4rem 0 1.6rem;
+	width: 100%;
+	height: 4.8rem;
+	font-size: 1.6rem;
+	color: $hsla_blue;
+	background-color: $hsla_L96;
+	box-shadow: inset 0 0 0 0.1rem $hsla_blue;
+}
+input[type="text"]:hover {
+	background-color: $hsla_L100;
+}
+input[type="text"]:active {
+	background-color: hsla(0,0%,98%,1);
+}
+// --- Input Wraps --- \\
+div.wrap_inputs {
+	position: relative;
+	z-index: 101;
+}
+div.wrap_date,
+div.wrap_select {
+	position: relative;
+	z-index: 100;
+}
+div.wrap_date,
+div.wrap_inputs {
+	margin-bottom: 3.2rem;
+}
+div.wrap_svg.input_svg {
+	pointer-events: none;
+	position: absolute;
+	top: 1.6rem;
+	right: 1.6rem;
+	width: 1.6rem;
+	height: 1.6rem;
+	transform: rotate(90deg);
+}
+div.wrap_svg.input_svg svg {
+	fill: $hsla_blue;
+}
+// --- Select Dropdown --- \\
+div.wrap_select div.dropdown_toggle {
+	cursor: pointer;
+	position: relative;
+	z-index: 102;
+	height: 4.8rem;
+	background-color: $hsla_L96;
+	box-shadow: inset 0 0 0 0.1rem $hsla_blue;
+}
+div.wrap_select div.dropdown_toggle span {
+	display: block;
+	user-select: none;
+	padding-left: 1.6rem;
+	padding-right: 4.8rem;
+	font-size: 1.6rem;
+	text-align: left;
+	line-height: 4.8rem;
+	color: $hsla_blue;
+	white-space: nowrap;
+}
+// + dropdown list + \\
+div.wrap_select div.wrap_dropdown,
+div.wrap_select div.wrap_dropdown ul,
+div.wrap_select div.wrap_dropdown.scrollable,
+div.wrap_select div.wrap_dropdown span.fix_ios-scroll {
+	background-color: $hsla_L100; // be sure there is no chance ios rubber band will show a difference background
+}
+div.wrap_select div.wrap_dropdown {
+	position: absolute;
+	z-index: 101;
+	top: 0;
+	width: 100%;
+	box-shadow: $boxshadow_drop;
+	overflow: hidden;
+}
+div.wrap_select div.wrap_dropdown ul {
+	padding-top: 4.8rem;
+}
+div.wrap_select div.wrap_dropdown ul li a {
+	display: block;
+	padding: 1.6rem;
+	font-size: 1.6rem;
+	color: $hsla_blue;
+}
+div.wrap_select div.wrap_dropdown ul li.selected a {
+	pointer-events: none;
+	color: $hsla_pink;
+}
+// + dropdown scrollable + \\
+div.wrap_select div.wrap_dropdown.scrollable {
+	height: 28.8rem; // dropdown_label height (48px) x 6
+}
+div.wrap_select div.wrap_dropdown span.fix_ios-scroll { // required only get to iOS to behave
+	display: block;
+	position: absolute;
+	top: 4.8rem;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+}
+div.wrap_select div.wrap_dropdown span.fix_ios-scroll ul {
+	padding-top: 0;
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+// + chrome scrollbar + \\
+div.wrap_select div.wrap_dropdown span.fix_ios-scroll ul::-webkit-scrollbar {
+	width: 0.4rem;
+	background-color: hsla(0,0%,0%,1);
+}
+div.wrap_select div.wrap_dropdown span.fix_ios-scroll ul::-webkit-scrollbar-track {
+	background-color: $hsla_pink;
+}
+div.wrap_select div.wrap_dropdown span.fix_ios-scroll ul::-webkit-scrollbar-thumb {
+	background-color: $hsla_blue;
+}
+// + interaction + \\
+div.wrap_select:hover div.dropdown_toggle {
+	background-color: $hsla_L100;
+}
+div.wrap_select:active div.dropdown_toggle {
+	background-color: hsla(0,0%,98%,1);
+}
+div.wrap_select div.wrap_dropdown ul li a:hover {
+	background-color: hsla(0,0%,98%,1);
+}
+div.wrap_select div.wrap_dropdown ul li a:active {
+	background-color: $hsla_L100;
+}
+// + hide / show dropdown + \\
+div.wrap_select div.wrap_dropdown {
+	opacity: 0;
+	visibility: hidden;
+}
+div.wrap_select.toggle_show {
+	z-index: 200;
+}
+div.wrap_select.toggle_show div.wrap_dropdown {
+	opacity: 1;
+	visibility: visible;
+}
+div.wrap_select.toggle_show div.dropdown_toggle {
+}
+
+// Containers
+// ----------------------------------------------------------------------------
+[data-container="full"] {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	background-color: $hsla_L92;
+}
+[data-container="padding"] {
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+// SVGs
+// ----------------------------------------------------------------------------
+#svgInject {
+	display: none;
+	visibility: hidden;
+}
+.wrap_svg {
+	display: block;
+
+	margin-left: auto;
+	margin-right: auto;
+}
+.wrap_svg svg {
+	width: 100%;
+	height: 100%;
+}
+svg.svg_inline {
+	display: inline; // [viewBox] attribute selector does not work in webkit
+}
+
+// Links & Buttons
+// ----------------------------------------------------------------------------
+/*
+a {
+	color: $hsla_blue;
+}
+a:hover {
+	color: $hsla_gold;
+}
+a:active {
+	color: $hsla_gold-D;
+}
+*/
+// --- Buttons --- \\
+.button {
+	display: inline-block;
+	margin: 0 auto;
+	padding: 1.2rem 2rem; // computed height is 65px
+	font-family: "futura-pt", Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 1.4rem;
+	font-weight: 700;
+	letter-spacing: 0.1rem;
+	text-align: center;
+	text-transform: uppercase;
+	color: $hsla_L100;
+	border-radius: 0.4rem;
+}
+// + individual buttons + \\
+.button.blue {
+	background-color: $hsla_blue;
+}
+.button.pink {
+	background-color: $hsla_pink;
+}
+
+// + interaction + \\
+.button:hover {
+	background-color: $hsla_L28;
+}
+.button:active {
+	background-color: $hsla_L38;
+}
+
+// --- Badges --- \\
+.badge {
+	padding: 0.6rem;
+	width: 3.2rem;
+	height: 3.2rem;
+	border-radius: 0.4rem;
+}
+.badge svg {
+	fill: $hsla_L100;
+}
+
+// + individual badges + \\
+.badge_alert {
+	background-color: $hsla_pink;
+}
+
+// Overlay & Modal
+// ----------------------------------------------------------------------------
+// created and added (also destroyed) to DOM via JS
+// opacity applied via JS | transition via CSS
+[data-overlay] {
+	position: fixed;
+	z-index: 900;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: $hsla_L96;
+	overflow: hidden;
+}
+[data-modal] {
+	position: fixed;
+	z-index: 901;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+// + overlay active + \\
+html.overlay_active,
+html.overlay_active body {
+	overflow-y: hidden;
+}
+// --- Gallery Modal --- \\
+aside[data-modal="gallery"] {
+	padding-top: 6.4rem;
+}
+aside[data-modal="gallery"] img {
+	margin: 0 auto;
+	opacity: 0; // hide by default
+}
+aside[data-modal="gallery"].img_loaded img {
+	opacity: 1;
+}
+
+// Headings
+// ----------------------------------------------------------------------------
+h1 {
+	font-family: "futura-pt", Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 1.4rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: $hsla_L28;
+}
+
+h3 {
+	font-size: 1.4rem;
+	font-weight: 700;
+
+}
+
+// Content
+// ----------------------------------------------------------------------------
+div.content {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	text-align: center;
+	color: $hsla_L18;
+}
+div.content h3 {
+	margin-bottom: 1rem;
+}
+div.content p {
+	margin-bottom: 1rem;
+	font-size: 1.2rem;
+	line-height: 1.4;
+}
+div.content p:last-child {
+	margin-bottom: 0;
+}
+
+
+
+// ==|== common sections ======================================================
+// ============================================================================
+
+// Header
+// ----------------------------------------------------------------------------
+header {
+	position: relative;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+header div.wrap_svg {
+	width: 7.2rem;
+}
+// --- Header Links --- \\
+header a.wrap_svg {
+	position: absolute;
+	top: 2.8rem;
+	width: 1.8rem;
+}
+header a.wrap_svg svg {
+	fill: $hsla_L78;
+}
+header a.wrap_svg:hover svg {
+	fill: $hsla_L54;
+}
+header a.wrap_svg:active svg {
+	fill: $hsla_L78;
+}
+// + individual links + \\
+header a.link_back {
+	left: 1rem;
+	transform: rotate(180deg);
+}
+header a.link_settings {
+	right: 1rem;
+}
+
+
+// Something
+// ----------------------------------------------------------------------------
+
+
+
+
+
+
+// ==|== page styles ==========================================================
+// ============================================================================
+
+// Error
+// ----------------------------------------------------------------------------
+body.page_error [data-container="full"] {
+	text-align: center;
+}
+// + banner + \\
+body.page_error div.badge_alert,
+body.page_error div.headlines {
+	display: inline-block;
+}
+body.page_error div.badge_alert {
+	transform: translateY(0.3rem);
+}
+body.page_error div.headlines {
+	padding-left: 0.6rem;
+	text-align: left;
+}
+body.page_error div.headlines h1 {
+	margin-bottom: 0.4rem;
+}
+body.page_error div.headlines p {
+	font-size: 1rem;
+	color: $hsla_L54;
+}
+// + content + \\
+body.page_error div.content a.button {
+	margin-top: 2rem;
+	min-width: 80%;
+}
+
+
+

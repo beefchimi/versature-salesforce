@@ -1,0 +1,31 @@
+// SASS Variables
+// ----------------------------------------------------------------------------
+
+$hsla_blue:   hsla(192,55%,55%,1);
+
+$hsla_pink:   hsla(344,61%,62%,1);
+
+$hsla_orange: hsla(15,92%,68%,1);
+
+$hsla_yellow: hsla(35,95%,67%,1);
+
+$hsla_purple: hsla(248,70%,75%,1);
+
+$hsla_L100:   hsla(0,0%,100%,1);
+$hsla_L96:    hsla(0,0%,96%,1);
+$hsla_L92:    hsla(0,0%,92%,1);
+$hsla_L88:    hsla(0,0%,88%,1);
+$hsla_L78:    hsla(0,0%,78%,1);
+$hsla_L71:    hsla(0,0%,71%,1);
+$hsla_L54:    hsla(0,0%,54%,1);
+$hsla_L38:    hsla(0,0%,38%,1);
+$hsla_L28:    hsla(0,0%,28%,1);
+$hsla_L18:    hsla(0,0%,18%,1);
+$hsla_L0:     hsla(0,0%,0%,1);
+
+$boxshadow_drop: 0 0.1rem 0.2rem hsla(0,0%,0%,0.3);
+
+// One stylesheet to rule them all
+// ----------------------------------------------------------------------------
+@import 'base';
+@import 'main';
