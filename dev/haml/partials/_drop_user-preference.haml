@@ -1,0 +1,27 @@
+#wrap_select-preference.wrap_select-preference.wrap_select{"data-selected" => ""}
+
+	%select#user_preference.visuallyhidden{:name => "user_preference", :tabindex => "-1", :required => true}
+		%option{:disabled => true, :selected => true, :value => true} Select Preference...
+		%option{:value => "Lead"} Lead
+		%option{:value => "Account"} Account
+		%option{:value => "Contact"} Contact
+		%option{:value => "Opportunity"} Opportunity
+
+	.dropdown_toggle
+		%span.dropdown_placeholder.truncate Select Preference...
+		.wrap_svg.input_svg
+			%svg.ui_arrow-thick{:viewBox => "0 0 64 64"}
+				%use{"xlink:href" => "#ui_arrow-thick"}
+
+	-# if UL > LI.length >= 6: add class "scrollable"
+	.wrap_dropdown
+
+		%ul.dropdown_list
+			%li.dropdown_option
+				%a.dropdown_link{:href => "#", "data-value" => "Lead"} Lead
+			%li.dropdown_option
+				%a.dropdown_link{:href => "#", "data-value" => "Account"} Account
+			%li.dropdown_option
+				%a.dropdown_link{:href => "#", "data-value" => "Contact"} Contact
+			%li.dropdown_option
+				%a.dropdown_link{:href => "#", "data-value" => "Opportunity"} Opportunity

@@ -51,9 +51,18 @@ svg {
 	transition: fill 0.3s ease-in-out;
 }
 textarea,
+input[type="tel"],
 input[type="text"],
-input[type="datetime"] {
+input[type="datetime"],
+div.wrap_select div.dropdown_toggle {
 	transition: border-color 0.3s ease-in-out;
+}
+ul.options_grid li a h6,
+a.banner div.headlines h1,
+a.banner div.headlines h4,
+a.banner div.headlines h5,
+div.wrap_select div.dropdown_toggle span {
+	transition: color 0.3s ease-in-out;
 }
 [data-overlay] {
 	transition: opacity 0.6s ease-in-out;
@@ -82,6 +91,7 @@ html:not(.ie9) header {
 // Forms
 // ----------------------------------------------------------------------------
 textarea,
+input[type="tel"],
 input[type="text"],
 input[type="datetime"] {
 	width: 100%;
@@ -92,20 +102,40 @@ input[type="datetime"] {
 	border-radius: 0.4rem;
 }
 textarea {
-	padding: 1rem;
 	min-height: 21rem;
 	max-height: 28rem;
+}
+textarea,
+input[type="tel"] {
+	padding: 1rem;
+}
+input[type="tel"] {
+	font-size: 1.5rem;
+	text-align: center;
+	color: $hsla_L28;
+}
+input[type="tel"][readonly] {
+	pointer-events: none;
+	background-color: $hsla_L88;
+	border: none;
+}
+textarea,
+input[type="text"],
+input[type="datetime"] {
+	font-size: 1.2rem;
 }
 input[type="text"],
 input[type="datetime"] {
 	padding: 1.4rem 1rem;
 }
+// + interaction + \\
 textarea:focus,
+input[type="tel"]:focus,
 input[type="text"]:focus,
 input[type="datetime"]:focus {
 	border-color: $hsla_blue;
 }
-// --- Wrap Inputs --- \\
+// --- Date Time --- \\
 .wrap_datetime {
 	position: relative;
 }
@@ -121,7 +151,145 @@ input[type="datetime"]:focus {
 .wrap_datetime div.wrap_svg svg {
 	fill: $hsla_L28;
 }
+// --- Dropdowns --- \\
+div.wrap_select {
+	position: relative;
+	z-index: 100;
+	// margin-bottom: 3.2rem;
+}
+div.wrap_select div.dropdown_toggle {
+	cursor: pointer;
+	position: relative;
+	z-index: 102;
+	width: 100%;
+	height: 4rem;
+	background-color: $hsla_L100;
+	border: 0.1rem solid $hsla_L92;
+	border-radius: 0.4rem;
+}
+div.wrap_select div.dropdown_toggle span {
+	display: block;
+	user-select: none;
+	padding-left: 1rem;
+	padding-right: 4rem;
+	font-size: 1.2rem;
+	font-weight: 700;
+	line-height: 3.8rem; // less than 4rem to compensatre for truncate styles
+	color: $hsla_L38;
+}
+div.wrap_select div.dropdown_toggle div.wrap_svg {
+	pointer-events: none;
+	position: absolute;
+	top: 1.4rem;
+	right: 1rem;
+	width: 1rem;
+	transform: rotate(90deg);
+}
+div.wrap_select div.dropdown_toggle div.wrap_svg svg {
+	fill: $hsla_L38;
+}
 
+// + dropdown list + \\
+div.wrap_dropdown,
+div.wrap_dropdown ul,
+div.wrap_dropdown.scrollable,
+div.wrap_dropdown span.fix_ios-scroll {
+	background-color: $hsla_L100; // be sure there is no chance ios rubber band will show a difference background
+}
+div.wrap_dropdown {
+	position: absolute;
+	z-index: 101;
+	top: 0;
+	width: 100%;
+	box-shadow: $boxshadow_drop;
+	overflow: hidden;
+}
+div.wrap_dropdown ul {
+	padding-top: 4.8rem;
+}
+div.wrap_dropdown ul li a {
+	display: block;
+	padding: 1.6rem;
+	font-size: 1.6rem;
+	color: $hsla_blue;
+}
+div.wrap_dropdown ul li.selected a {
+	pointer-events: none;
+	color: $hsla_pink;
+}
+// + dropdown scrollable + \\
+div.wrap_dropdown.scrollable {
+	height: 28.8rem; // dropdown_label height (48px) x 6
+}
+div.wrap_dropdown span.fix_ios-scroll { // required only get to iOS to behave
+	display: block;
+	position: absolute;
+	top: 4.8rem;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+}
+div.wrap_dropdown span.fix_ios-scroll ul {
+	padding-top: 0;
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+// + chrome scrollbar + \\
+div.wrap_dropdown span.fix_ios-scroll ul::-webkit-scrollbar {
+	width: 0.4rem;
+	background-color: hsla(0,0%,0%,1);
+}
+div.wrap_dropdown span.fix_ios-scroll ul::-webkit-scrollbar-track {
+	background-color: $hsla_pink;
+}
+div.wrap_dropdown span.fix_ios-scroll ul::-webkit-scrollbar-thumb {
+	background-color: $hsla_blue;
+}
+
+// + interaction + \\
+div.wrap_select:hover div.dropdown_toggle {
+	border-color: $hsla_blue;
+}
+div.wrap_select:hover div.dropdown_toggle span {
+	color: $hsla_blue;
+}
+div.wrap_select:hover div.dropdown_toggle div.wrap_svg svg {
+	fill: $hsla_blue;
+}
+div.wrap_select:active div.dropdown_toggle {
+	border-color: $hsla_blue-D;
+}
+div.wrap_select:active div.dropdown_toggle span {
+	color: $hsla_blue-D;
+}
+div.wrap_select:active div.dropdown_toggle div.wrap_svg svg {
+	fill: $hsla_blue-D;
+}
+
+div.wrap_dropdown ul li a:hover {
+	background-color: $hsla_L96;
+}
+div.wrap_dropdown ul li a:active {
+	background-color: $hsla_L100;
+}
+
+// + hide / show dropdown + \\
+div.wrap_dropdown {
+	opacity: 0;
+	visibility: hidden;
+}
+div.wrap_select.toggle_show {
+	z-index: 200;
+}
+div.wrap_select.toggle_show div.wrap_dropdown {
+	opacity: 1;
+	visibility: visible;
+}
+div.wrap_select.toggle_show div.dropdown_toggle {
+}
 
 // Containers
 // ----------------------------------------------------------------------------
@@ -138,7 +306,6 @@ input[type="datetime"]:focus {
 }
 .wrap_svg {
 	display: block;
-
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -150,19 +317,62 @@ svg.svg_inline {
 	display: inline; // [viewBox] attribute selector does not work in webkit
 }
 
+// Headings
+// ----------------------------------------------------------------------------
+h1 {
+	font-family: "futura-pt", Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 1.4rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: $hsla_L28;
+}
+h1.name {
+	text-transform: none;
+}
+h2 {
+	margin-top: 0.6rem;
+	font-size: 1.3rem;
+	color: $hsla_L54;
+}
+h3 {
+	font-size: 1.4rem;
+	font-weight: 700;
+}
+h4 {
+	font-family: "futura-pt", Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 1rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: $hsla_L54;
+}
+h5 {
+	font-size: 1.1rem;
+	color: $hsla_L54;
+}
+h6 {
+	font-family: "futura-pt", Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 0.9rem;
+	font-weight: 700;
+	color: $hsla_L18;
+}
+
 // Links & Buttons
 // ----------------------------------------------------------------------------
-/*
-a {
+a.log_link {
+	display: table;
+	margin: 1.6rem auto 0 auto;
+	font-family: "futura-pt", Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 1.2rem;
+	font-weight: 500;
+	text-decoration: underline;
+	color: $hsla_L54;
+}
+a.log_link:hover {
 	color: $hsla_blue;
 }
-a:hover {
-	color: $hsla_gold;
+a.log_link:active {
+	color: $hsla_blue-D;
 }
-a:active {
-	color: $hsla_gold-D;
-}
-*/
 // --- Buttons --- \\
 .button {
 	display: block;
@@ -185,6 +395,23 @@ a:active {
 }
 .button.pink {
 	background-color: $hsla_pink;
+}
+// + with icon + \\
+.button svg,
+.button span {
+	display: inline-block;
+}
+.button svg {
+	margin-right: 0.6rem;
+	width: 1.6rem;
+	fill: $hsla_L100;
+	transform: translateY(-0.2rem);
+}
+.button svg.ui_phone {
+	width: 1.8rem;
+}
+.button svg.ui_cancel {
+	width: 1.4rem;
 }
 // + interaction + \\
 .button:hover {
@@ -228,52 +455,79 @@ div.actions.columns .button:first-child {
 .badge.icon_lead {
 	background-color: $hsla_orange;
 }
+.badge.icon_account {
+	background-color: $hsla_violet;
+}
+.badge.icon_contact {
+	background-color: $hsla_purple;
+}
+.badge.icon_opportunity {
+	background-color: $hsla_yellow;
+}
 .badge.icon_question {
 	background-color: $hsla_green;
 }
 
 // Banner
 // ----------------------------------------------------------------------------
-article.banner {
-	margin-bottom: 2rem;
+.banner {
 	padding: 2rem 1rem;
-	background-color: $hsla_L92;
 }
-article.banner div.badge,
-article.banner div.headlines {
+.banner div.badge,
+.banner div.headlines {
 	float: left;
 }
-article.banner div.badge {
+.banner div.badge {
 	margin-right: 1rem;
 }
-article.banner div.headlines {
+.banner div.headlines {
 	padding-top: 0.3rem;
 	width: calc(100% - 4.2rem); // 3.2rem + 1rem
 }
-article.banner div.headlines h1 {
+.banner div.headlines h1 {
 	margin-bottom: 0.2rem;
 }
-article.banner div.headlines p {
-	font-size: 1.1rem;
-	color: $hsla_L54;
-}
 // + pinned banner + \\
-article.banner.pinned {
+.banner.pinned {
 	position: relative;
 }
-article.banner.pinned div.headlines {
+.banner.pinned div.headlines {
 	width: calc(100% - 7.2rem); // 3.2rem + 1rem + 2rem + 1rem
 }
-article.banner.pinned div.icon_pin {
+.banner.pinned div.icon_pin {
 	position: absolute;
 	top: 50%;
 	right: 1rem;
 	width: 2rem;
 	transform: translateY(-50%);
 }
-article.banner.pinned div.icon_pin svg {
+.banner.pinned div.icon_pin svg {
 	fill: $hsla_L72;
 }
+// + banner articles + \\
+article.banner {
+	margin-bottom: 2rem;
+	background-color: $hsla_L92;
+}
+// + banner links + \\
+a.banner {
+	display: block;
+	background-color: $hsla_L100;
+}
+a.banner:hover {
+	background-color: $hsla_blue;
+}
+a.banner:hover div.headlines h1,
+a.banner:hover div.headlines h4,
+a.banner:hover div.headlines h5 {
+	color: $hsla_L100;
+}
+a.banner:active {
+	background-color: $hsla_blue-L;
+}
+
+
+
 
 // Overlay & Modal
 // ----------------------------------------------------------------------------
@@ -316,31 +570,6 @@ aside[data-modal="gallery"].img_loaded img {
 	opacity: 1;
 }
 
-// Headings
-// ----------------------------------------------------------------------------
-h1 {
-	font-family: "futura-pt", Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 1.4rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	color: $hsla_L28;
-}
-h1.name {
-	text-transform: none;
-}
-
-h3 {
-	font-size: 1.4rem;
-	font-weight: 700;
-}
-h4 {
-	font-family: "futura-pt", Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 1rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	color: $hsla_L54;
-}
-
 // Content
 // ----------------------------------------------------------------------------
 div.content {
@@ -357,6 +586,71 @@ div.content p {
 }
 div.content p:last-child {
 	margin-bottom: 0;
+}
+
+
+// Standard
+// ----------------------------------------------------------------------------
+article.standard {
+	margin-bottom: 2rem;
+	text-align: center;
+}
+article.standard div.wrap_phone {
+	margin-top: 1rem;
+}
+
+
+// Options Grid
+// ----------------------------------------------------------------------------
+ul.options_grid {
+	margin-top: 1rem;
+	border-top: 0.1rem solid $hsla_L92;
+}
+ul.options_grid li {
+	float: left;
+	width: 33.3333333%;
+	border-right: 0.1rem solid $hsla_L92;
+	border-bottom: 0.1rem solid $hsla_L92;
+}
+ul.options_grid li:nth-child(3n) {
+	border-right: none;
+}
+ul.options_grid li a {
+	display: block;
+	padding-top: 1.4rem;
+	padding-bottom: 1.4rem;
+	text-align: center;
+	background-color: $hsla_L100;
+}
+ul.options_grid li a div.wrap_svg {
+	margin-bottom: 1rem;
+	width: 3.6rem;
+	height: 3.6rem;
+}
+// + interaction + \\
+ul.options_grid li a:hover {
+	background-color: $hsla_blue;
+}
+ul.options_grid li a:hover h6 {
+	color: $hsla_L100;
+}
+ul.options_grid li a:active {
+	background-color: $hsla_blue-L;
+}
+
+// Contact List
+// ----------------------------------------------------------------------------
+ul.contact_list {
+	margin-top: 1rem;
+	max-height: 36.6rem;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+ul.contact_list li {
+	border-bottom: 0.1rem solid $hsla_L92;
+}
+ul.contact_list li:first-child {
+	border-top: 0.1rem solid $hsla_L92;
 }
 
 
@@ -476,3 +770,13 @@ form.cases_form div.wrap_callnotes-subject {
 
 // Reminder
 // ----------------------------------------------------------------------------
+
+// Settings
+// ----------------------------------------------------------------------------
+form.settings_form h4 {
+	margin-bottom: 1rem;
+}
+div.wrap_select-role {
+	margin-bottom: 2rem;
+}
+

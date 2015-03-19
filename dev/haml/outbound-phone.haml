@@ -1,0 +1,36 @@
+!!!
+/[if IE 9] <html class="ie9" lang="en">
+<!--[if gt IE 9]><!-->
+%html{:lang => "en"}<>
+	<!--<![endif]-->
+
+	= Haml::Engine.new(File.read("dev/haml/partials/_doc_head.haml")).render
+
+	%body#page_outbound-phone.page_outbound-phone
+
+		= Haml::Engine.new(File.read("dev/haml/partials/_html_header.haml")).render
+
+		%main{:role => "main"}
+
+			%section#header_outbound-phone{"data-container" => "padding"}
+
+				%article.standard
+
+					%form#form_phone.phone_form{:action => "", :method => "", :name => "form_phone"}
+
+						.wrap_phone.wrap_input
+							%input#phone{:name => "phone", :type => "tel", :value => "", :placeholder => "Enter Phone Number"}
+
+			%section#main_outbound-phone{"data-container" => "padding"}
+
+				%article
+
+					.actions
+						%a.button.blue{:href => "#", :title => "Dial"}
+							%svg.ui_phone{:viewBox => "0 0 64 64"}
+								%use{"xlink:href" => "#ui_phone"}
+							%span Dial
+
+					%a.log_link{:href => "#", :title => "Log a call manually"} Log a call manually
+
+		= Haml::Engine.new(File.read("dev/haml/partials/_doc_scripts.haml")).render

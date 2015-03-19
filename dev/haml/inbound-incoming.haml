@@ -1,0 +1,50 @@
+!!!
+/[if IE 9] <html class="ie9" lang="en">
+<!--[if gt IE 9]><!-->
+%html{:lang => "en"}<>
+	<!--<![endif]-->
+
+	= Haml::Engine.new(File.read("dev/haml/partials/_doc_head.haml")).render
+
+	%body#page_inbound-incoming.page_inbound-incoming
+
+		= Haml::Engine.new(File.read("dev/haml/partials/_html_header.haml")).render
+
+		%main{:role => "main"}
+
+			%section#header_inbound-incoming{"data-container" => "padding"}
+
+				%article.standard
+
+					%h1 Incoming Call
+
+					%form#form_phone.phone_form{:action => "", :method => "", :name => "form_phone"}
+
+						.wrap_phone.wrap_input
+							%input#phone{:name => "phone", :type => "tel", :value => "(613) 555-5555", :placeholder => "Enter Phone Number", :readonly => true}
+
+			%section#main_inbound-incoming
+
+				%article.banner.clearfix
+
+					.badge.icon_account.wrap_svg
+						%svg.ui_account{:viewBox => "0 0 64 64"}
+							%use{"xlink:href" => "#ui_account"}
+
+					.headlines
+						%h1.name.truncate Northern Army
+						%h4.truncate Last contacted: Feb 29, 2014
+
+				.actions
+
+					%a.button.blue{:href => "#", :title => "Answer"}
+						%svg.ui_phone{:viewBox => "0 0 64 64"}
+							%use{"xlink:href" => "#ui_phone"}
+						%span Answer
+
+					%a.button.pink{:href => "#", :title => "Decline"}
+						%svg.ui_cancel{:viewBox => "0 0 64 64"}
+							%use{"xlink:href" => "#ui_cancel"}
+						%span Decline
+
+		= Haml::Engine.new(File.read("dev/haml/partials/_doc_scripts.haml")).render

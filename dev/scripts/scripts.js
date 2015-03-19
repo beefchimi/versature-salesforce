@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// Global Variables: Variables requiring a global scope
 	// ----------------------------------------------------------------------------
-	var transitionEvent  = whichTransitionEvent(),
-		animationEvent   = whichAnimationEvent(),
-		elHTML           = document.documentElement,
-		elBody           = document.body,
+	var transitionEvent = whichTransitionEvent(),
+		animationEvent  = whichAnimationEvent(),
+		elHTML          = document.documentElement,
+		elBody          = document.body,
 		elOverlay;
 
 
@@ -107,7 +107,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		// if necessary, accomodate for scrollbar width
 		if (hasScrollbar) {
 			elBody.style.paddingRight = numScrollbarWidth + 'px';
-			elMainNav.style.paddingRight = numScrollbarWidth + 'px';
 		}
 
 	}
@@ -120,7 +119,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		// should be expanded to restore original padding if needed
 		if (hasScrollbar) {
 			elBody.style.paddingRight = '0px';
-			elMainNav.style.paddingRight = '0px';
 		}
 
 	}
@@ -305,7 +303,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// Initialize Primary Functions
 	// ----------------------------------------------------------------------------
-	// selectDropdown();
+	selectDropdown();
 
 
 });

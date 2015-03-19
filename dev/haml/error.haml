@@ -12,7 +12,7 @@
 
 		%main{:role => "main"}
 
-			%section{"data-container" => "full"}
+			%section#header_error
 
 				%article.banner.clearfix
 
@@ -22,9 +22,9 @@
 
 					.headlines
 						%h1.truncate Error 429
-						%p.error_reason.truncate Too Many Requests / Time Out
+						%h5.error_reason.truncate Too Many Requests / Time Out
 
-			%section{"data-container" => "padding"}
+			%section#main_error{"data-container" => "padding"}
 
 				%article.body
 

@@ -1,0 +1,62 @@
+!!!
+/[if IE 9] <html class="ie9" lang="en">
+<!--[if gt IE 9]><!-->
+%html{:lang => "en"}<>
+	<!--<![endif]-->
+
+	= Haml::Engine.new(File.read("dev/haml/partials/_doc_head.haml")).render
+
+	%body#page_norecord.page_norecord
+
+		= Haml::Engine.new(File.read("dev/haml/partials/_html_header.haml")).render
+
+		%main{:role => "main"}
+
+			%section#header_norecord{"data-container" => "padding"}
+
+				%article.standard
+
+					%h1 No Record Found
+
+					%form#form_phone.phone_form{:action => "", :method => "", :name => "form_phone"}
+
+						.wrap_phone.wrap_input
+							%input#phone{:name => "phone", :type => "tel", :value => "(613) 555-5555", :placeholder => "Enter Phone Number", :readonly => true}
+
+			%section#main_norecord
+
+				%article
+
+					%h4{"data-container" => "padding"} Create New:
+
+					%ul.options_grid.clearfix
+
+						%li{:id => "option_lead"}
+							%a{:href => "#", :title => "Option Lead"}
+								.badge.icon_lead.wrap_svg
+									%svg.ui_lead{:viewBox => "0 0 64 64"}
+										%use{"xlink:href" => "#ui_lead"}
+								%h6 Lead
+
+						%li{:id => "option_account"}
+							%a{:href => "#", :title => "Option Account"}
+								.badge.icon_account.wrap_svg
+									%svg.ui_account{:viewBox => "0 0 64 64"}
+										%use{"xlink:href" => "#ui_account"}
+								%h6 Account
+
+						%li{:id => "option_contact"}
+							%a{:href => "#", :title => "Option Contact"}
+								.badge.icon_contact.wrap_svg
+									%svg.ui_contact{:viewBox => "0 0 64 64"}
+										%use{"xlink:href" => "#ui_contact"}
+								%h6 Contact
+
+						%li{:id => "option_opportunity"}
+							%a{:href => "#", :title => "Option Opportunity"}
+								.badge.icon_opportunity.wrap_svg
+									%svg.ui_opportunity{:viewBox => "0 0 64 64"}
+										%use{"xlink:href" => "#ui_opportunity"}
+								%h6 Opportunity
+
+		= Haml::Engine.new(File.read("dev/haml/partials/_doc_scripts.haml")).render
