@@ -1,0 +1,7 @@
+%form#form_callnotes.cases_form{:action => "", :method => "", :name => "form_callnotes"}
+
+	.wrap_callnotes-subject.wrap_input
+		%input#callnotes-subject{:name => "callnotes-subject", :type => "text", :value => "", :placeholder => "Call Notes Subject...", :required => true}
+
+	.wrap_callnotes-text.wrap_input
+		%textarea#callnotes-text{:name => "callnotes-text", :maxlength => "255", :placeholder => "Enter Call Notes...", :required => true}

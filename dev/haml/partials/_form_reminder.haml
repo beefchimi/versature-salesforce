@@ -1,0 +1,13 @@
+%form#form_reminder.cases_form{:action => "", :method => "", :name => "form_reminder"}
+
+	.wrap_datetime.wrap_input
+		%input#datetime{:name => "datetime", :type => "datetime", :value => "", :placeholder => "Select Date...", :required => true}
+		.wrap_svg
+			%svg.ui_calendar{:viewBox => "0 0 64 64"}
+				%use{"xlink:href" => "#ui_calendar"}
+
+	.wrap_reminder-title.wrap_input
+		%input#reminder-title{:name => "reminder-title", :type => "text", :value => "", :placeholder => "Reminder Title...", :required => true}
+
+	.wrap_reminder-text.wrap_input
+		%textarea#reminder-text{:name => "reminder-text", :maxlength => "255", :placeholder => "Enter Reminder...", :required => true}

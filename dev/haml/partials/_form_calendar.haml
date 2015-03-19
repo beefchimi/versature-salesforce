@@ -1,0 +1,16 @@
+%form#form_calendar.cases_form{:action => "", :method => "", :name => "form_calendar"}
+
+	.wrap_datetime.wrap_input
+		%input#datetime{:name => "datetime", :type => "datetime", :value => "", :placeholder => "Select Date...", :required => true}
+		.wrap_svg
+			%svg.ui_calendar{:viewBox => "0 0 64 64"}
+				%use{"xlink:href" => "#ui_calendar"}
+
+	.wrap_meeting-location.wrap_input
+		%input#meeting-location{:name => "meeting-location", :type => "text", :value => "", :placeholder => "Meeting Location...", :required => true}
+
+	.wrap_meeting-subject.wrap_input
+		%input#meeting-subject{:name => "meeting-subject", :type => "text", :value => "", :placeholder => "Meeting Subject...", :required => true}
+
+	.wrap_meeting-text.wrap_input
+		%textarea#meeting-text{:name => "meeting-text", :maxlength => "255", :placeholder => "Enter Meeting Info...", :required => true}

@@ -64,10 +64,10 @@ input[type="search"] { -webkit-appearance: textfield; box-sizing: content-box; }
 input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
 fieldset { border: none; margin: 0; padding: 0; }
 legend { border: 0; padding: 0; }
-textarea { overflow: auto; }
+textarea { overflow: auto; resize: vertical; }
 optgroup { font-weight: bold; }
 button, input, textarea { outline: none; background: none; border: none;  } // added by me
-button, input, select, textarea { border-radius: 0; } // added by me
+button, input, select, textarea { border-radius: 0; box-shadow: none; } // added by me
 
 // Tables
 // ----------------------------------------------------------------------------

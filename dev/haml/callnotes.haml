@@ -6,7 +6,7 @@
 
 	= Haml::Engine.new(File.read("dev/haml/partials/_doc_head.haml")).render
 
-	%body#page_reminder.page_reminder
+	%body#page_callnotes.page_callnotes
 
 		= Haml::Engine.new(File.read("dev/haml/partials/_html_header.haml")).render
 
@@ -40,7 +40,7 @@
 							%svg.ui_calendar{:viewBox => "0 0 64 64"}
 								%use{"xlink:href" => "#ui_calendar"}
 
-						%a.icon_reminder.wrap_svg.current{:href => "#", :title => "Reminder"}
+						%a.icon_reminder.wrap_svg{:href => "#", :title => "Reminder"}
 							%svg.ui_reminder{:viewBox => "0 0 64 64"}
 								%use{"xlink:href" => "#ui_reminder"}
 
@@ -54,7 +54,7 @@
 
 					-# not sure how this form is supposed to submit / retrieve data...
 					-# should it toggle between 'reminder' and 'calendar', or be separate pages?
-					= Haml::Engine.new(File.read("dev/haml/partials/_form_reminder.haml")).render
+					= Haml::Engine.new(File.read("dev/haml/partials/_form_callnotes.haml")).render
 
 					.actions.columns
 						%a.button.pink{:href => "#", :title => "Cancel"} Cancel
