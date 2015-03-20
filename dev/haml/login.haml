@@ -1,0 +1,36 @@
+!!!
+/[if IE 9] <html class="ie9" lang="en">
+<!--[if gt IE 9]><!-->
+%html{:lang => "en"}<>
+	<!--<![endif]-->
+
+	= Haml::Engine.new(File.read("dev/haml/partials/_doc_head.haml")).render
+
+	%body#page_login.page_login
+
+		= Haml::Engine.new(File.read("dev/haml/partials/_html_header.haml")).render
+
+		%main{:role => "main"}
+
+			%section#header_login{"data-container" => "padding"}
+
+				%article.standard
+
+					%h1 Log In
+
+			%section#main_login{"data-container" => "padding"}
+
+				%article
+
+					%form#form_login.login_form{:action => "", :method => "", :name => "form_login"}
+
+						%h4 Username:
+						.wrap_username.wrap_input
+							%input#username{:name => "username", :type => "text", :value => "", :placeholder => "Enter Username..."}
+
+						%h4 Password:
+						.wrap_password.wrap_input
+							%input#password{:name => "password", :type => "password", :value => "", :placeholder => "Enter Password..."}
+
+						.actions
+							%button.button.blue{:type => "submit", :name => "submit"} Login

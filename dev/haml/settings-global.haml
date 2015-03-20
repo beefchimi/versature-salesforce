@@ -1,0 +1,42 @@
+!!!
+/[if IE 9] <html class="ie9" lang="en">
+<!--[if gt IE 9]><!-->
+%html{:lang => "en"}<>
+	<!--<![endif]-->
+
+	= Haml::Engine.new(File.read("dev/haml/partials/_doc_head.haml")).render
+
+	%body#page_settings-global.page_settings-global
+
+		= Haml::Engine.new(File.read("dev/haml/partials/_html_header.haml")).render
+
+		%main{:role => "main"}
+
+			%section#header_settings-global{"data-container" => "padding"}
+
+				%article.standard
+
+					%h1 Log In
+					-# does this need to be a mailto: link?
+					%h2.truncate northernarmy.com
+
+			%section#main_settings-global{"data-container" => "padding"}
+
+				%article
+
+					%form#form_settings-global.settings-global_form{:action => "", :method => "", :name => "form_settings-global"}
+
+						%h4 Vendor ID:
+						.wrap_vendor.wrap_input
+							%input#vendor{:name => "vendor", :type => "text", :value => "", :placeholder => "Enter Vendor ID..."}
+
+						%h4 Username:
+						.wrap_username.wrap_input
+							%input#username{:name => "username", :type => "text", :value => "", :placeholder => "Enter Username..."}
+
+						%h4 Password:
+						.wrap_password.wrap_input
+							%input#password{:name => "password", :type => "password", :value => "", :placeholder => "Enter Password..."}
+
+						.actions
+							%button.button.blue{:type => "submit", :name => "submit"} Login

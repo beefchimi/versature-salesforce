@@ -1,0 +1,63 @@
+!!!
+/[if IE 9] <html class="ie9" lang="en">
+<!--[if gt IE 9]><!-->
+%html{:lang => "en"}<>
+	<!--<![endif]-->
+
+	= Haml::Engine.new(File.read("dev/haml/partials/_doc_head.haml")).render
+
+	%body#page_home.page_home
+
+		= Haml::Engine.new(File.read("dev/haml/partials/_html_header.haml")).render
+
+		%main{:role => "main"}
+
+			%section#header_home
+
+				%article.banner.clearfix
+
+					.badge.icon_alert.wrap_svg
+						%svg.ui_exclaim{:viewBox => "0 0 64 64"}
+							%use{"xlink:href" => "#ui_exclaim"}
+
+					.headlines
+						%h1.truncate Page Index
+						%h5.home_reason.truncate All The Pages In The World
+
+			%section#main_home{"data-container" => "padding"}
+
+				%article.body
+
+					.content
+						%h3 Clicky Clicky
+						%ul
+							%li
+								%a{:href => "login.html", :title => "Click Me"} Log In
+							%li
+								%a{:href => "settings-user.html", :title => "Click Me"} Settings User
+							%li
+								%a{:href => "settings-global.html", :title => "Click Me"} Settings Global
+							%li
+								%a{:href => "callnotes.html", :title => "Click Me"} Call Notes
+							%li
+								%a{:href => "calendar.html", :title => "Click Me"} Calendar
+							%li
+								%a{:href => "reminder.html", :title => "Click Me"} Reminder
+							%li
+								%a{:href => "norecord.html", :title => "Click Me"} No Record
+							%li
+								%a{:href => "inbound-connected.html", :title => "Click Me"} Inbound Connected
+							%li
+								%a{:href => "inbound-incoming.html", :title => "Click Me"} Inbound Incoming
+							%li
+								%a{:href => "outbound-account.html", :title => "Click Me"} Outbound Account
+							%li
+								%a{:href => "outbound-contact.html", :title => "Click Me"} Outbound Contact
+							%li
+								%a{:href => "outbound-phone.html", :title => "Click Me"} Outbound Phone
+							%li
+								%a{:href => "error.html", :title => "Click Me"} Error
+							%li
+								%a{:href => "modal-standard.html", :title => "Click Me"} Modal Standard
+							%li
+								%a{:href => "modal-select.html", :title => "Click Me"} Modal Selected

@@ -25,18 +25,16 @@ body {
 	color: $hsla_L100;
 	background-color: $hsla_blue;
 }
-/*
 ::-webkit-input-placeholder {
-	color: $hsla_blue;
+	color: $hsla_L54;
 }
 ::-moz-placeholder {
-	color: $hsla_blue;
+	color: $hsla_L54;
 	opacity: 1;
 }
 :-ms-input-placeholder {
-	color: $hsla_blue;
+	color: $hsla_L54;
 }
-*/
 
 // Transitions
 // ----------------------------------------------------------------------------
@@ -54,6 +52,7 @@ textarea,
 input[type="tel"],
 input[type="text"],
 input[type="datetime"],
+input[type="password"],
 div.wrap_select div.dropdown_toggle {
 	transition: border-color 0.3s ease-in-out;
 }
@@ -93,7 +92,8 @@ html:not(.ie9) header {
 textarea,
 input[type="tel"],
 input[type="text"],
-input[type="datetime"] {
+input[type="datetime"],
+input[type="password"] {
 	width: 100%;
 	font-size: 1.2rem;
 	font-weight: 700;
@@ -121,18 +121,21 @@ input[type="tel"][readonly] {
 }
 textarea,
 input[type="text"],
-input[type="datetime"] {
+input[type="datetime"],
+input[type="password"] {
 	font-size: 1.2rem;
 }
 input[type="text"],
-input[type="datetime"] {
+input[type="datetime"],
+input[type="password"] {
 	padding: 1.4rem 1rem;
 }
 // + interaction + \\
 textarea:focus,
 input[type="tel"]:focus,
 input[type="text"]:focus,
-input[type="datetime"]:focus {
+input[type="datetime"]:focus,
+input[type="password"]:focus {
 	border-color: $hsla_blue;
 }
 // --- Date Time --- \\
@@ -151,11 +154,10 @@ input[type="datetime"]:focus {
 .wrap_datetime div.wrap_svg svg {
 	fill: $hsla_L28;
 }
-// --- Dropdowns --- \\
+// --- Select --- \\
 div.wrap_select {
 	position: relative;
 	z-index: 100;
-	// margin-bottom: 3.2rem;
 }
 div.wrap_select div.dropdown_toggle {
 	cursor: pointer;
@@ -188,67 +190,6 @@ div.wrap_select div.dropdown_toggle div.wrap_svg {
 div.wrap_select div.dropdown_toggle div.wrap_svg svg {
 	fill: $hsla_L38;
 }
-
-// + dropdown list + \\
-div.wrap_dropdown,
-div.wrap_dropdown ul,
-div.wrap_dropdown.scrollable,
-div.wrap_dropdown span.fix_ios-scroll {
-	background-color: $hsla_L100; // be sure there is no chance ios rubber band will show a difference background
-}
-div.wrap_dropdown {
-	position: absolute;
-	z-index: 101;
-	top: 0;
-	width: 100%;
-	box-shadow: $boxshadow_drop;
-	overflow: hidden;
-}
-div.wrap_dropdown ul {
-	padding-top: 4.8rem;
-}
-div.wrap_dropdown ul li a {
-	display: block;
-	padding: 1.6rem;
-	font-size: 1.6rem;
-	color: $hsla_blue;
-}
-div.wrap_dropdown ul li.selected a {
-	pointer-events: none;
-	color: $hsla_pink;
-}
-// + dropdown scrollable + \\
-div.wrap_dropdown.scrollable {
-	height: 28.8rem; // dropdown_label height (48px) x 6
-}
-div.wrap_dropdown span.fix_ios-scroll { // required only get to iOS to behave
-	display: block;
-	position: absolute;
-	top: 4.8rem;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	overflow: hidden;
-}
-div.wrap_dropdown span.fix_ios-scroll ul {
-	padding-top: 0;
-	height: 100%;
-	overflow-x: hidden;
-	overflow-y: scroll;
-	-webkit-overflow-scrolling: touch;
-}
-// + chrome scrollbar + \\
-div.wrap_dropdown span.fix_ios-scroll ul::-webkit-scrollbar {
-	width: 0.4rem;
-	background-color: hsla(0,0%,0%,1);
-}
-div.wrap_dropdown span.fix_ios-scroll ul::-webkit-scrollbar-track {
-	background-color: $hsla_pink;
-}
-div.wrap_dropdown span.fix_ios-scroll ul::-webkit-scrollbar-thumb {
-	background-color: $hsla_blue;
-}
-
 // + interaction + \\
 div.wrap_select:hover div.dropdown_toggle {
 	border-color: $hsla_blue;
@@ -267,28 +208,6 @@ div.wrap_select:active div.dropdown_toggle span {
 }
 div.wrap_select:active div.dropdown_toggle div.wrap_svg svg {
 	fill: $hsla_blue-D;
-}
-
-div.wrap_dropdown ul li a:hover {
-	background-color: $hsla_L96;
-}
-div.wrap_dropdown ul li a:active {
-	background-color: $hsla_L100;
-}
-
-// + hide / show dropdown + \\
-div.wrap_dropdown {
-	opacity: 0;
-	visibility: hidden;
-}
-div.wrap_select.toggle_show {
-	z-index: 200;
-}
-div.wrap_select.toggle_show div.wrap_dropdown {
-	opacity: 1;
-	visibility: visible;
-}
-div.wrap_select.toggle_show div.dropdown_toggle {
 }
 
 // Containers
@@ -438,7 +357,9 @@ div.actions.columns .button {
 div.actions.columns .button:first-child {
 	margin-right: 0.6rem;
 }
-// --- Badges --- \\
+
+// Badges
+// ----------------------------------------------------------------------------
 .badge {
 	padding: 0.6rem;
 	width: 3.2rem;
@@ -526,50 +447,6 @@ a.banner:active {
 	background-color: $hsla_blue-L;
 }
 
-
-
-
-// Overlay & Modal
-// ----------------------------------------------------------------------------
-// created and added (also destroyed) to DOM via JS
-// opacity applied via JS | transition via CSS
-[data-overlay] {
-	position: fixed;
-	z-index: 900;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	background-color: $hsla_L96;
-	overflow: hidden;
-}
-[data-modal] {
-	position: fixed;
-	z-index: 901;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	overflow-y: scroll;
-	-webkit-overflow-scrolling: touch;
-}
-// + overlay active + \\
-html.overlay_active,
-html.overlay_active body {
-	overflow-y: hidden;
-}
-// --- Gallery Modal --- \\
-aside[data-modal="gallery"] {
-	padding-top: 6.4rem;
-}
-aside[data-modal="gallery"] img {
-	margin: 0 auto;
-	opacity: 0; // hide by default
-}
-aside[data-modal="gallery"].img_loaded img {
-	opacity: 1;
-}
-
 // Content
 // ----------------------------------------------------------------------------
 div.content {
@@ -579,15 +456,32 @@ div.content {
 div.content h3 {
 	margin-bottom: 1rem;
 }
-div.content p {
+div.content p,
+div.content ul li {
 	margin-bottom: 1rem;
 	font-size: 1.2rem;
+}
+div.content p {
 	line-height: 1.4;
 }
-div.content p:last-child {
+div.content p:last-child,
+div.content ul li:last-child {
 	margin-bottom: 0;
 }
-
+// + links + \\
+div.content p a,
+div.content ul li a {
+	font-weight: 700;
+	color: $hsla_blue;
+}
+div.content p a:hover,
+div.content ul li a:hover {
+	color: $hsla_L28;
+}
+div.content p a:active,
+div.content ul li a:active {
+	color: $hsla_L38;
+}
 
 // Standard
 // ----------------------------------------------------------------------------
@@ -598,7 +492,6 @@ article.standard {
 article.standard div.wrap_phone {
 	margin-top: 1rem;
 }
-
 
 // Options Grid
 // ----------------------------------------------------------------------------
@@ -653,6 +546,66 @@ ul.contact_list li:first-child {
 	border-top: 0.1rem solid $hsla_L92;
 }
 
+// Overlay & Modal
+// ----------------------------------------------------------------------------
+// created and added (also destroyed) to DOM via JS
+// opacity applied via JS | transition via CSS
+[data-overlay] {
+	position: absolute;
+	z-index: 900;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: hsla(0,0%,0%,0.6);
+	overflow: hidden;
+}
+[data-modal] {
+	position: absolute;
+	z-index: 901;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	margin: auto;
+	width: 100%;
+	max-height: 22.8rem;
+	background-color: $hsla_L96;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+// + overlay active + \\
+html.overlay_active,
+html.overlay_active body {
+	overflow-y: hidden;
+}
+// --- Modal Content --- \\
+[data-modal] div.content {
+	padding-top: 2rem;
+}
+[data-modal] div.actions {
+	padding-bottom: 2rem;
+}
+// --- Select List --- \\
+ul.select_list li {
+	border-bottom: 0.1rem solid $hsla_L92;
+}
+ul.select_list li:last-child {
+	border-bottom: none;
+}
+ul.select_list li a {
+	display: block;
+	padding: 1.4rem 1rem;
+	font-size: 1.2rem;
+	font-weight: 700;
+	color: $hsla_L38;
+}
+ul.select_list li a:hover {
+	color: $hsla_blue;
+}
+ul.select_list li a:active {
+	color: $hsla_blue-D;
+}
+
 
 // ==|== common sections ======================================================
 // ============================================================================
@@ -677,10 +630,10 @@ header a.wrap_svg svg {
 	fill: $hsla_L78;
 }
 header a.wrap_svg:hover svg {
-	fill: $hsla_L54;
+	fill: $hsla_blue;
 }
 header a.wrap_svg:active svg {
-	fill: $hsla_L78;
+	fill: $hsla_blue-D;
 }
 // + individual links + \\
 header a.link_back {
@@ -693,9 +646,6 @@ header a.link_settings {
 
 // Cases
 // ----------------------------------------------------------------------------
-artice.cases {
-}
-
 // --- Cases Header --- \\
 div.cases_header {
 	position: relative;
@@ -729,7 +679,6 @@ div.cases_header a:hover svg {
 div.cases_header a:active svg {
 	fill: $hsla_L54;
 }
-
 // --- Cases Grid --- \\
 ul.cases_grid {
 	margin-bottom: 1rem; // 1rem + 1rem from li's
@@ -749,7 +698,6 @@ ul.cases_grid li a:hover {
 ul.cases_grid li a:active {
 	background-color: $hsla_L38;
 }
-
 // --- Cases Form --- \\
 form.cases_form div.wrap_datetime,
 form.cases_form div.wrap_reminder-title,
@@ -759,24 +707,15 @@ form.cases_form div.wrap_callnotes-subject {
 	margin-bottom: 1rem;
 }
 
-
-
-
-// ==|== page styles ==========================================================
-// ============================================================================
-
-// Error
+// Common Forms
 // ----------------------------------------------------------------------------
-
-// Reminder
-// ----------------------------------------------------------------------------
-
-// Settings
-// ----------------------------------------------------------------------------
-form.settings_form h4 {
+form.login_form h4,
+form.settings-user_form h4,
+form.settings-global_form h4 {
 	margin-bottom: 1rem;
 }
+div.wrap_vendor,
+div.wrap_username,
 div.wrap_select-role {
 	margin-bottom: 2rem;
 }
-

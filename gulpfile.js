@@ -6,7 +6,7 @@ var gulp       = require('gulp'),
 	// pngcrush   = require('imagemin-pngcrush'), // do not need for this project
 	// gutil = require('gulp-util'), // does it make sense to define this outside of load-plugins?
 	// livereload = require('gulp-livereload'), // does it make sense to define this outside of load-plugins?
-	secrets    = require('./secrets.json'),
+	// secrets    = require('./secrets.json'),
 	plugins    = require('gulp-load-plugins')({
 		pattern: ['gulp-*', 'gulp.*'],
 		replaceString: /\bgulp[\-.]/
@@ -147,6 +147,7 @@ gulp.task('extras', function() {
 });
 
 
+/*
 // Use rsync to deploy to server (no need to exclude files since everything comes from 'build' folder)
 gulp.task('deploy', function() {
 
@@ -163,6 +164,7 @@ gulp.task('deploy', function() {
 		}));
 
 });
+*/
 
 
 // Watch over specified files and run corresponding tasks...

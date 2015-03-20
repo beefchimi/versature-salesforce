@@ -59,3 +59,24 @@
 					.actions.columns
 						%a.button.pink{:href => "#", :title => "Cancel"} Cancel
 						%a.button.blue{:href => "#", :title => "Save"} Save
+
+		%div{"data-overlay" => "id_name"}
+			%aside{"data-modal" => "standard"}
+
+				.content{"data-container" => "padding"}
+
+					%h3 Are you sure?
+					%p If you cancel your session, your notes will NOT be saved.
+					%p This is a second paragraph to show how the modal will scroll if content exceeds the maximum height of 228px. More copy is needed in order to reach that limit. Here is some more copy.
+
+				.actions
+
+					%a.button.blue{:href => "#", :title => "Return"}
+						%svg.ui_checkmark{:viewBox => "0 0 64 64"}
+							%use{"xlink:href" => "#ui_checkmark"}
+						%span Return
+
+					%a.button.pink{:href => "#", :title => "Delete"}
+						%svg.ui_cancel{:viewBox => "0 0 64 64"}
+							%use{"xlink:href" => "#ui_cancel"}
+						%span Delete
