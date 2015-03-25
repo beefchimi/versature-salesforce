@@ -10,8 +10,8 @@ optgroup,
 select,
 textarea {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	color: $hsla_L0;
-	background-color: $hsla_L18;
+	color: $hsl_L0;
+	background-color: $hsl_L18;
 }
 body {
 	position: relative;
@@ -19,21 +19,21 @@ body {
 	margin-right: auto;
 	padding-bottom: 2rem;
 	width: 20rem;
-	background-color: $hsla_L96;
+	background-color: $hsl_L96;
 }
 ::selection {
-	color: $hsla_L100;
-	background-color: $hsla_blue;
+	color: $hsl_L100;
+	background-color: $hsl_blue;
 }
 ::-webkit-input-placeholder {
-	color: $hsla_L54;
+	color: $hsl_L54;
 }
 ::-moz-placeholder {
-	color: $hsla_L54;
+	color: $hsl_L54;
 	opacity: 1;
 }
 :-ms-input-placeholder {
-	color: $hsla_L54;
+	color: $hsl_L54;
 }
 
 // Transitions
@@ -97,8 +97,8 @@ input[type="password"] {
 	width: 100%;
 	font-size: 1.2rem;
 	font-weight: 700;
-	background-color: $hsla_L100;
-	border: 0.1rem solid $hsla_L92;
+	background-color: $hsl_L100;
+	border: 0.1rem solid $hsl_L92;
 	border-radius: 0.4rem;
 }
 textarea {
@@ -112,11 +112,11 @@ input[type="tel"] {
 input[type="tel"] {
 	font-size: 1.5rem;
 	text-align: center;
-	color: $hsla_L28;
+	color: $hsl_L28;
 }
 input[type="tel"][readonly] {
 	pointer-events: none;
-	background-color: $hsla_L88;
+	background-color: $hsl_L88;
 	border: none;
 }
 textarea,
@@ -136,7 +136,7 @@ input[type="tel"]:focus,
 input[type="text"]:focus,
 input[type="datetime"]:focus,
 input[type="password"]:focus {
-	border-color: $hsla_blue;
+	border-color: $hsl_blue;
 }
 // --- Date Time --- \\
 .wrap_datetime {
@@ -152,7 +152,7 @@ input[type="password"]:focus {
 	width: 1.8rem;
 }
 .wrap_datetime div.wrap_svg svg {
-	fill: $hsla_L28;
+	fill: $hsl_L28;
 }
 // --- Select --- \\
 div.wrap_select {
@@ -165,8 +165,8 @@ div.wrap_select div.dropdown_toggle {
 	z-index: 102;
 	width: 100%;
 	height: 4rem;
-	background-color: $hsla_L100;
-	border: 0.1rem solid $hsla_L92;
+	background-color: $hsl_L100;
+	border: 0.1rem solid $hsl_L92;
 	border-radius: 0.4rem;
 }
 div.wrap_select div.dropdown_toggle span {
@@ -177,7 +177,7 @@ div.wrap_select div.dropdown_toggle span {
 	font-size: 1.2rem;
 	font-weight: 700;
 	line-height: 3.8rem; // less than 4rem to compensatre for truncate styles
-	color: $hsla_L38;
+	color: $hsl_L38;
 }
 div.wrap_select div.dropdown_toggle div.wrap_svg {
 	pointer-events: none;
@@ -188,26 +188,26 @@ div.wrap_select div.dropdown_toggle div.wrap_svg {
 	transform: rotate(90deg);
 }
 div.wrap_select div.dropdown_toggle div.wrap_svg svg {
-	fill: $hsla_L38;
+	fill: $hsl_L38;
 }
 // + interaction + \\
 div.wrap_select:hover div.dropdown_toggle {
-	border-color: $hsla_blue;
+	border-color: $hsl_blue;
 }
 div.wrap_select:hover div.dropdown_toggle span {
-	color: $hsla_blue;
+	color: $hsl_blue;
 }
 div.wrap_select:hover div.dropdown_toggle div.wrap_svg svg {
-	fill: $hsla_blue;
+	fill: $hsl_blue;
 }
 div.wrap_select:active div.dropdown_toggle {
-	border-color: $hsla_blue-D;
+	border-color: darken($hsl_blue, 10%);
 }
 div.wrap_select:active div.dropdown_toggle span {
-	color: $hsla_blue-D;
+	color: darken($hsl_blue, 10%);
 }
 div.wrap_select:active div.dropdown_toggle div.wrap_svg svg {
-	fill: $hsla_blue-D;
+	fill: darken($hsl_blue, 10%);
 }
 
 // Containers
@@ -243,7 +243,7 @@ h1 {
 	font-size: 1.4rem;
 	font-weight: 700;
 	text-transform: uppercase;
-	color: $hsla_L28;
+	color: $hsl_L28;
 }
 h1.name {
 	text-transform: none;
@@ -251,7 +251,7 @@ h1.name {
 h2 {
 	margin-top: 0.6rem;
 	font-size: 1.3rem;
-	color: $hsla_L54;
+	color: $hsl_L54;
 }
 h3 {
 	font-size: 1.4rem;
@@ -262,17 +262,17 @@ h4 {
 	font-size: 1rem;
 	font-weight: 700;
 	text-transform: uppercase;
-	color: $hsla_L54;
+	color: $hsl_L54;
 }
 h5 {
 	font-size: 1.1rem;
-	color: $hsla_L54;
+	color: $hsl_L54;
 }
 h6 {
 	font-family: "futura-pt", Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 0.9rem;
 	font-weight: 700;
-	color: $hsla_L18;
+	color: $hsl_L18;
 }
 
 // Links & Buttons
@@ -284,13 +284,13 @@ a.log_link {
 	font-size: 1.2rem;
 	font-weight: 500;
 	text-decoration: underline;
-	color: $hsla_L54;
+	color: $hsl_L54;
 }
 a.log_link:hover {
-	color: $hsla_blue;
+	color: $hsl_blue;
 }
 a.log_link:active {
-	color: $hsla_blue-D;
+	color: darken($hsl_blue, 10%);
 }
 // --- Buttons --- \\
 .button {
@@ -306,14 +306,14 @@ a.log_link:active {
 	line-height: 3.6rem;
 	text-align: center;
 	text-transform: uppercase;
-	color: $hsla_L100;
+	color: $hsl_L100;
 	border-radius: 0.4rem;
 }
 .button.blue {
-	background-color: $hsla_blue;
+	background-color: $hsl_blue;
 }
 .button.pink {
-	background-color: $hsla_pink;
+	background-color: $hsl_pink;
 }
 // + with icon + \\
 .button svg,
@@ -323,7 +323,7 @@ a.log_link:active {
 .button svg {
 	margin-right: 0.6rem;
 	width: 1.6rem;
-	fill: $hsla_L100;
+	fill: $hsl_L100;
 	transform: translateY(-0.2rem);
 }
 .button svg.ui_phone {
@@ -334,10 +334,10 @@ a.log_link:active {
 }
 // + interaction + \\
 .button:hover {
-	background-color: $hsla_L28;
+	background-color: $hsl_L28;
 }
 .button:active {
-	background-color: $hsla_L38;
+	background-color: $hsl_L38;
 }
 // + actions + \\
 div.actions {
@@ -367,26 +367,26 @@ div.actions.columns .button:first-child {
 	border-radius: 0.4rem;
 }
 .badge svg {
-	fill: $hsla_L100;
+	fill: $hsl_L100;
 }
 // + individual badges + \\
 .badge.icon_alert {
-	background-color: $hsla_pink;
+	background-color: $hsl_pink;
 }
 .badge.icon_lead {
-	background-color: $hsla_orange;
+	background-color: $hsl_orange;
 }
 .badge.icon_account {
-	background-color: $hsla_violet;
+	background-color: $hsl_violet;
 }
 .badge.icon_contact {
-	background-color: $hsla_purple;
+	background-color: $hsl_purple;
 }
 .badge.icon_opportunity {
-	background-color: $hsla_yellow;
+	background-color: $hsl_yellow;
 }
 .badge.icon_question {
-	background-color: $hsla_green;
+	background-color: $hsl_green;
 }
 
 // Banner
@@ -423,35 +423,35 @@ div.actions.columns .button:first-child {
 	transform: translateY(-50%);
 }
 .banner.pinned div.icon_pin svg {
-	fill: $hsla_L72;
+	fill: $hsl_L72;
 }
 // + banner articles + \\
 article.banner {
 	margin-bottom: 2rem;
-	background-color: $hsla_L92;
+	background-color: $hsl_L92;
 }
 // + banner links + \\
 a.banner {
 	display: block;
-	background-color: $hsla_L100;
+	background-color: $hsl_L100;
 }
 a.banner:hover {
-	background-color: $hsla_blue;
+	background-color: $hsl_blue;
 }
 a.banner:hover div.headlines h1,
 a.banner:hover div.headlines h4,
 a.banner:hover div.headlines h5 {
-	color: $hsla_L100;
+	color: $hsl_L100;
 }
 a.banner:active {
-	background-color: $hsla_blue-L;
+	background-color: lighten($hsl_blue, 10%);
 }
 
 // Content
 // ----------------------------------------------------------------------------
 div.content {
 	text-align: center;
-	color: $hsla_L18;
+	color: $hsl_L18;
 }
 div.content h3 {
 	margin-bottom: 1rem;
@@ -472,15 +472,15 @@ div.content ul li:last-child {
 div.content p a,
 div.content ul li a {
 	font-weight: 700;
-	color: $hsla_blue;
+	color: $hsl_blue;
 }
 div.content p a:hover,
 div.content ul li a:hover {
-	color: $hsla_L28;
+	color: $hsl_L28;
 }
 div.content p a:active,
 div.content ul li a:active {
-	color: $hsla_L38;
+	color: $hsl_L38;
 }
 
 // Standard
@@ -497,13 +497,13 @@ article.standard div.wrap_phone {
 // ----------------------------------------------------------------------------
 ul.options_grid {
 	margin-top: 1rem;
-	border-top: 0.1rem solid $hsla_L92;
+	border-top: 0.1rem solid $hsl_L92;
 }
 ul.options_grid li {
 	float: left;
 	width: 33.3333333%;
-	border-right: 0.1rem solid $hsla_L92;
-	border-bottom: 0.1rem solid $hsla_L92;
+	border-right: 0.1rem solid $hsl_L92;
+	border-bottom: 0.1rem solid $hsl_L92;
 }
 ul.options_grid li:nth-child(3n) {
 	border-right: none;
@@ -513,7 +513,7 @@ ul.options_grid li a {
 	padding-top: 1.4rem;
 	padding-bottom: 1.4rem;
 	text-align: center;
-	background-color: $hsla_L100;
+	background-color: $hsl_L100;
 }
 ul.options_grid li a div.wrap_svg {
 	margin-bottom: 1rem;
@@ -522,13 +522,13 @@ ul.options_grid li a div.wrap_svg {
 }
 // + interaction + \\
 ul.options_grid li a:hover {
-	background-color: $hsla_blue;
+	background-color: $hsl_blue;
 }
 ul.options_grid li a:hover h6 {
-	color: $hsla_L100;
+	color: $hsl_L100;
 }
 ul.options_grid li a:active {
-	background-color: $hsla_blue-L;
+	background-color: lighten($hsl_blue, 10%);
 }
 
 // Contact List
@@ -540,10 +540,10 @@ ul.contact_list {
 	-webkit-overflow-scrolling: touch;
 }
 ul.contact_list li {
-	border-bottom: 0.1rem solid $hsla_L92;
+	border-bottom: 0.1rem solid $hsl_L92;
 }
 ul.contact_list li:first-child {
-	border-top: 0.1rem solid $hsla_L92;
+	border-top: 0.1rem solid $hsl_L92;
 }
 
 // Overlay & Modal
@@ -569,7 +569,7 @@ ul.contact_list li:first-child {
 	margin: auto;
 	width: 100%;
 	max-height: 22.8rem;
-	background-color: $hsla_L96;
+	background-color: $hsl_L96;
 	overflow-y: scroll;
 	-webkit-overflow-scrolling: touch;
 }
@@ -587,7 +587,7 @@ html.overlay_active body {
 }
 // --- Select List --- \\
 ul.select_list li {
-	border-bottom: 0.1rem solid $hsla_L92;
+	border-bottom: 0.1rem solid $hsl_L92;
 }
 ul.select_list li:last-child {
 	border-bottom: none;
@@ -597,13 +597,13 @@ ul.select_list li a {
 	padding: 1.4rem 1rem;
 	font-size: 1.2rem;
 	font-weight: 700;
-	color: $hsla_L38;
+	color: $hsl_L38;
 }
 ul.select_list li a:hover {
-	color: $hsla_blue;
+	color: $hsl_blue;
 }
 ul.select_list li a:active {
-	color: $hsla_blue-D;
+	color: darken($hsl_blue, 10%);
 }
 
 
@@ -627,13 +627,13 @@ header a.wrap_svg {
 	width: 1.8rem;
 }
 header a.wrap_svg svg {
-	fill: $hsla_L78;
+	fill: $hsl_L78;
 }
 header a.wrap_svg:hover svg {
-	fill: $hsla_blue;
+	fill: $hsl_blue;
 }
 header a.wrap_svg:active svg {
-	fill: $hsla_blue-D;
+	fill: darken($hsl_blue, 10%);
 }
 // + individual links + \\
 header a.link_back {
@@ -657,13 +657,13 @@ div.cases_header a {
 	width: 1.8rem;
 }
 div.cases_header a svg {
-	fill: $hsla_L78;
+	fill: $hsl_L78;
 }
 div.cases_header a.current {
 	pointer-events: none;
 }
 div.cases_header a.current svg {
-	fill: $hsla_blue;
+	fill: $hsl_blue;
 }
 // + individual links + \\
 div.cases_header a.icon_calendar {
@@ -674,10 +674,10 @@ div.cases_header a.icon_reminder {
 }
 // + interaction + \\
 div.cases_header a:hover svg {
-	fill: $hsla_L38;
+	fill: $hsl_L38;
 }
 div.cases_header a:active svg {
-	fill: $hsla_L54;
+	fill: $hsl_L54;
 }
 // --- Cases Grid --- \\
 ul.cases_grid {
@@ -693,10 +693,10 @@ ul.cases_grid li:nth-child(5n) {
 	margin-right: 0;
 }
 ul.cases_grid li a:hover {
-	background-color: $hsla_L28;
+	background-color: $hsl_L28;
 }
 ul.cases_grid li a:active {
-	background-color: $hsla_L38;
+	background-color: $hsl_L38;
 }
 // --- Cases Form --- \\
 form.cases_form div.wrap_datetime,

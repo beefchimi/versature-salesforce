@@ -1,27 +1,24 @@
 // SASS Variables
 // ----------------------------------------------------------------------------
-$hsla_blue:   hsla(192,55%,55%,1);
-$hsla_blue-L: hsla(192,55%,65%,1);
-$hsla_blue-D: hsla(192,55%,45%,1);
+$hsl_blue:   hsl(192,55%,55%);
+$hsl_pink:   hsl(344,61%,62%);
+$hsl_orange: hsl(15,92%,68%);
+$hsl_yellow: hsl(35,95%,67%);
+$hsl_violet: hsl(231,61%,69%);
+$hsl_purple: hsl(248,70%,75%);
+$hsl_green:  hsl(108,48%,64%);
 
-$hsla_pink:   hsla(344,61%,62%,1);
-$hsla_orange: hsla(15,92%,68%,1);
-$hsla_yellow: hsla(35,95%,67%,1);
-$hsla_violet: hsla(231,61%,69%,1);
-$hsla_purple: hsla(248,70%,75%,1);
-$hsla_green:  hsla(108,48%,64%,1);
-
-$hsla_L100:   hsla(0,0%,100%,1);
-$hsla_L96:    hsla(0,0%,96%,1);
-$hsla_L92:    hsla(0,0%,92%,1);
-$hsla_L88:    hsla(0,0%,88%,1);
-$hsla_L78:    hsla(0,0%,78%,1);
-$hsla_L72:    hsla(0,0%,72%,1);
-$hsla_L54:    hsla(0,0%,54%,1);
-$hsla_L38:    hsla(0,0%,38%,1);
-$hsla_L28:    hsla(0,0%,28%,1);
-$hsla_L18:    hsla(0,0%,18%,1);
-$hsla_L0:     hsla(0,0%,0%,1);
+$hsl_L100:   hsl(0,0%,100%);
+$hsl_L96:    hsl(0,0%,96%);
+$hsl_L92:    hsl(0,0%,92%);
+$hsl_L88:    hsl(0,0%,88%);
+$hsl_L78:    hsl(0,0%,78%);
+$hsl_L72:    hsl(0,0%,72%);
+$hsl_L54:    hsl(0,0%,54%);
+$hsl_L38:    hsl(0,0%,38%);
+$hsl_L28:    hsl(0,0%,28%);
+$hsl_L18:    hsl(0,0%,18%);
+$hsl_L0:     hsl(0,0%,0%);
 
 // One stylesheet to rule them all
 // ----------------------------------------------------------------------------
